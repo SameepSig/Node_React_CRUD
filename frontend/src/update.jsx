@@ -11,7 +11,7 @@ const Update = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${API_URL}/student/${id}`)
+    axios.get(`${import.meta.env.API_URL}/student/${id}`)
       .then(res => {
         const student = res.data;
         setName(student.name);
@@ -32,7 +32,7 @@ const Update = () => {
       result
     };
 
-    axios.put(`${API_URL}/update/${id}`, studentData)
+    axios.put(`${import.meta.env.API_URL}/update/${id}`, studentData)
       .then(res => {
         console.log(res);
         navigate('/', { state: { message: res.data.message || "Student record updated successfully!", messageType: "info" } });

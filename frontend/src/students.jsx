@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
-import API_URL from "./config";
 
 const Students = () => {
   const [students, setStudents] = useState([]);
@@ -24,7 +23,7 @@ const Students = () => {
 
   const fetchStudents = () => {
     axios
-      .get(`${API_URL}/students`)
+      .get(`${import.meta.env.API_URL}/students`)
       .then((res) => {
         console.log(res.data);
         setStudents(res.data);
@@ -35,7 +34,7 @@ const Students = () => {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this record?")) {
       axios
-        .delete(`${API_URL}/delete/${id}`)
+        .delete(`${import.meta.env.API_URL}/delete/${id}`)
         .then((res) => {
           console.log(res.data);
           setMessage(res.data.message || "Student record deleted successfully!");
