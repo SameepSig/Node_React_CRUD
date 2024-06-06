@@ -17,7 +17,7 @@ const Add_Students = () => {
       result
     };
 
-    axios.post(`${import.meta.env.API_URL}/create`, studentData)
+    axios.post(`${import.meta.env.VITE_API_URL}/create`, studentData)
       .then(res => {
         console.log(res);
         navigate('/', { state: { message: res.data.message || "Student record created successfully!", messageType: "success" } });

@@ -23,10 +23,10 @@ const Students = () => {
 
   const fetchStudents = () => {
     axios
-      .get(`${import.meta.env.API_URL}/students`)
+      .get(`${import.meta.env.VITE_API_URL}/students`)
       .then((res) => {
         console.log("Hello I am here")
-        console.log(`${import.meta.env.API_URL}`)
+        console.log(`${import.meta.env.VITE_API_URL}`)
         console.log(res.data);
         setStudents(res.data);
       })
@@ -36,7 +36,7 @@ const Students = () => {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this record?")) {
       axios
-        .delete(`${import.meta.env.API_URL}/delete/${id}`)
+        .delete(`${import.meta.env.VITE_API_URL}/delete/${id}`)
         .then((res) => {
           console.log(res.data);
           setMessage(res.data.message || "Student record deleted successfully!");
