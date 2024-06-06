@@ -25,6 +25,8 @@ const Students = () => {
     axios
       .get(`${import.meta.env.API_URL}/students`)
       .then((res) => {
+        console.log("Hello I am here")
+        console.log(`${import.meta.env.API_URL}`)
         console.log(res.data);
         setStudents(res.data);
       })
