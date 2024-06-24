@@ -15,7 +15,7 @@ app.get('/students', (req, res) => {
   const sql = "SELECT * FROM students";
   db.query(sql, (err, data) => {
     if (err) {
-      return res.json({ error: "Error fetching student data." });
+      return res.json({ error: "Error fetching student dataaa." });
     }
     return res.json(data);
   });
